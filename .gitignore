@@ -87,3 +87,7 @@ public/uploads/tmp/
 
 public/uploads/*
 db/schema.rb
+
+
+# exclude files with critical information
+/app/assets/javascripts/static_pages.js

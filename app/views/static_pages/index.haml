@@ -1,0 +1,13 @@
+%section.section
+  .container
+    .row
+      .col-md-12
+        %h1
+          Drive Api
+    .row
+      #authorize-div
+        %span Authorize access to Drive API
+        / Button for the user to click to initiate auth sequence
+        %button#authorize-button{:onclick => "handleAuthClick(event)"}
+          Authorize
+      %pre#output

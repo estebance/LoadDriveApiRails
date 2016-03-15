@@ -7,6 +7,15 @@
             2.1.3p242  
           * Configuration  
             * You should change the file database_example.yml to database.yml and insert your credentials
+            * Rename the file static_pages_example.js  to static_pages.js and insert your Google Api Client ID
+              in this file.
+            * If you are in a developer environment you show include rename your host:
+                * nano /etc/hosts
+                * include a new line, for example:
+                    * 127.0.0.1   local.example.com
+                * paste your host in the Google Developer Console (Authorized JavaScript origins)
+                    * if your development server is running on port 3000, you have to insert
+                      local.example.com:3000
         * Database creation  
             * execute rake db:create
         * Database initialization
