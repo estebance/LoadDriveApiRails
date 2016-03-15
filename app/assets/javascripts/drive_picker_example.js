@@ -17,7 +17,7 @@ $(".static_pages.picker").ready(function() {
     var appId = "your app id";
 
     // Scope to use to access user's photos.
-    var scope = ['https://www.googleapis.com/auth/photos'];
+    var scope = ['https://www.googleapis.com/auth/drive'];
 
     var pickerApiLoaded = false;
     var oauthToken;
@@ -53,7 +53,16 @@ $(".static_pages.picker").ready(function() {
 // Create and render a Picker object for picking user Photos.
     function createPicker() {
         if (pickerApiLoaded && oauthToken) {
-            var picker = new google.picker.PickerBuilder().addView(google.picker.ViewId.PHOTOS).setOAuthToken(oauthToken).setDeveloperKey(developerKey).setCallback(pickerCallback).build();
+            var picker = new google.picker.PickerBuilder().
+            addView(google.picker.ViewId.DOCS).
+            addView(google.picker.ViewId.FOLDERS).
+            addView(google.picker.ViewId.DOCUMENTS).
+            addView(google.picker.ViewId.PRESENTATIONS).
+            addView(google.picker.ViewId.SPREADSHEETS).
+            addView(new google.picker.DocsUploadView()).
+            setOAuthToken(oauthToken).setDeveloperKey(developerKey).
+            setCallback(pickerCallback).
+            build();
             picker.setVisible(true);
         }
     }
@@ -62,8 +71,10 @@ $(".static_pages.picker").ready(function() {
     function pickerCallback(data) {
         var url = 'nothing';
         if (data[google.picker.Response.ACTION] == google.picker.Action.PICKED) {
-            var doc = data[google.picker.Response.DOCUMENTS][0];
-            url = doc[google.picker.Document.URL];
+            console.log(data);
+            // var fileId = data.docs[0].id;
+            var url= data.docs[0].url;
+            // alert('The user selected: ' + fileId + url );
         }
         var message = 'You picked: ' + url;
         document.getElementById('result').innerHTML = message;
@@ -76,4 +87,5 @@ $(".static_pages.picker").ready(function() {
     });
 
 
-});*/
+});
+*/
