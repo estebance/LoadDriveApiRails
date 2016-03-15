@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   root 'static_pages#index'
 
+  # use the picker interface
+  get 'picker' => 'static_pages#picker'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

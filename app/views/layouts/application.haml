@@ -7,5 +7,6 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
     %script{:src => "https://apis.google.com/js/client.js?onload=checkAuth"}
-  %body
+    %script{:src => "https://apis.google.com/js/api.js?onload=onApiLoad", :type => "text/javascript"}
+  %body{:class => "#{controller_name} #{action_name}"}
     = yield

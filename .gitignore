@@ -91,3 +91,4 @@ db/schema.rb
 
 # exclude files with critical information
 /app/assets/javascripts/static_pages.js
+/app/assets/javascripts/drive_picker.js
